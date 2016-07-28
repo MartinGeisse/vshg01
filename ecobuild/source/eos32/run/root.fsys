@@ -1,0 +1,100 @@
+../modules/boot/bootblk/bootblk
+2239 1500
+d--755 0 0
+boot      d--755 0 0
+          eos32.bin       ---644 0 0 ../modules/eos32/kernel/src/eos32.bin
+          eos32.map       ---644 0 0 ../modules/eos32/kernel/src/eos32.map
+          $
+bin       d--755 0 0
+          as              ---755 0 0 ../modules/eos32/userland/cmds/as/as
+          cat             ---755 0 0 ../modules/eos32/userland/cmds/cat/cat
+          chgrp           ---755 0 0 ../modules/eos32/userland/cmds/chgrp/chgrp
+          chmod           ---755 0 0 ../modules/eos32/userland/cmds/chmod/chmod
+          chown           ---755 0 0 ../modules/eos32/userland/cmds/chown/chown
+          clri            ---755 0 0 ../modules/eos32/userland/cmds/clri/clri
+          cmp             ---755 0 0 ../modules/eos32/userland/cmds/cmp/cmp
+          cp              ---755 0 0 ../modules/eos32/userland/cmds/cp/cp
+#          cpp             ---755 0 0 ../modules/eos32/userland/cmds/cpp/cpp
+          date            ---755 0 0 ../modules/eos32/userland/cmds/date/date
+          dcheck          ---755 0 0 ../modules/eos32/userland/cmds/dcheck/dcheck
+          df              ---755 0 0 ../modules/eos32/userland/cmds/df/df
+          dof             ---755 0 0 ../modules/eos32/userland/cmds/dof/dof
+          du              ---755 0 0 ../modules/eos32/userland/cmds/du/du
+          echo            ---755 0 0 ../modules/eos32/userland/cmds/echo/echo
+          ed              ---755 0 0 ../modules/eos32/userland/cmds/ed/ed
+          filehello       ---755 0 0 ../modules/eos32/userland/cmds/filehello/filehello
+          grep            ---755 0 0 ../modules/eos32/userland/cmds/grep/grep
+          icheck          ---755 0 0 ../modules/eos32/userland/cmds/icheck/icheck
+#          joe             ---755 0 0 ../modules/eos32/userland/cmds/joe/joe
+          kill            ---755 0 0 ../modules/eos32/userland/cmds/kill/kill
+#          lburg           ---755 0 0 ../modules/eos32/userland/cmds/lburg/lburg
+#          lcc             ---755 0 0 ../modules/eos32/userland/cmds/lcc/lcc
+          ld              ---755 0 0 ../modules/eos32/userland/cmds/ld/ld
+          ln              ---755 0 0 ../modules/eos32/userland/cmds/ln/ln
+          login           ---755 0 0 ../modules/eos32/userland/cmds/login/login
+          ls              ---755 0 0 ../modules/eos32/userland/cmds/ls/ls
+          lua             ---755 0 0 ../modules/eos32/userland/cmds/lua/lua
+          mkdir           ---755 0 0 ../modules/eos32/userland/cmds/mkdir/mkdir
+          mkfs            ---755 0 0 ../modules/eos32/userland/cmds/mkfs/mkfs
+          mknod           ---755 0 0 ../modules/eos32/userland/cmds/mknod/mknod
+          mkpart          ---755 0 0 ../modules/eos32/userland/cmds/mkpart/mkpart
+          mount           ---755 0 0 ../modules/eos32/userland/cmds/mount/mount
+          ncheck          ---755 0 0 ../modules/eos32/userland/cmds/ncheck/ncheck
+          passwd          ---755 0 0 ../modules/eos32/userland/cmds/passwd/passwd
+          ps              ---755 0 0 ../modules/eos32/userland/cmds/ps/ps
+          pwd             ---755 0 0 ../modules/eos32/userland/cmds/pwd/pwd
+#          rcc             ---755 0 0 ../modules/eos32/userland/cmds/rcc/rcc
+          rm              ---755 0 0 ../modules/eos32/userland/cmds/rm/rm
+          rmdir           ---755 0 0 ../modules/eos32/userland/cmds/rmdir/rmdir
+          sh              ---755 0 0 ../modules/eos32/userland/cmds/sh/sh
+          shfs            ---755 0 0 ../modules/eos32/userland/cmds/shfs/shfs
+          shpart          ---755 0 0 ../modules/eos32/userland/cmds/shpart/shpart
+          stty            ---755 0 0 ../modules/eos32/userland/cmds/stty/stty
+          sync            ---755 0 0 ../modules/eos32/userland/cmds/sync/sync
+          tuitest         ---755 0 0 ../modules/eos32/userland/cmds/tuitest/tuitest
+          umount          ---755 0 0 ../modules/eos32/userland/cmds/umount/umount
+          update          ---755 0 0 ../modules/eos32/userland/cmds/update/update
+          wc              ---755 0 0 ../modules/eos32/userland/cmds/wc/wc
+          hello           ---755 0 0 ../modules/eos32/userland/coherence/hello/hello
+          $
+dev       d--755 0 0
+          console         c--644 0 0 0 0
+          mem             c--600 0 0 8 0
+          kmem            c--600 0 0 8 1
+          null            c--666 0 0 8 2
+          idediskp0       b--644 0 0 0 0
+          idediskp1       b--644 0 0 0 1
+          idediskp2       b--644 0 0 0 2
+          idedisk         b--644 0 0 0 16
+          serdiskp0       b--644 0 0 1 0
+          serdiskp1       b--644 0 0 1 1
+          serdiskp2       b--644 0 0 1 2
+          serdisk         b--644 0 0 1 16
+          ramdisk         b--644 0 0 2 0
+          swap            b--644 0 0 0 1
+          tui             c--666 0 0 19 0
+          $
+etc       d--755 0 0
+          getty           ---755 0 0 ../modules/eos32/userland/cmds/getty/getty
+          init            ---755 0 0 ../modules/eos32/userland/cmds/init/init
+          passwd          ---644 0 0 ./etc/passwd
+          group           ---644 0 0 ./etc/group
+          rc              ---644 0 0 ./etc/rc
+          ttys            ---644 0 0 ./etc/ttys
+          motd            ---644 0 0 ./etc/motd
+          idedisk   d--755 0 0
+                    disk.part        ---644 0 0 ./etc/idedisk/disk.part
+#                    mbootblk         ---644 0 0 ./etc/idedisk/mbootblk
+#                    bootblk          ---644 0 0 ./etc/idedisk/bootblk
+                    root.fsys        ---644 0 0 ./etc/idedisk/root.fsys
+                    usr.fsys         ---644 0 0 ./etc/idedisk/usr.fsys
+                    $
+          $
+lib       d--755 0 0
+          $
+tmp       d--777 0 0
+          $
+usr       d--755 0 0
+          $
+WELCOME   ---644 0 0      ./WELCOME
+$

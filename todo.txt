@@ -1,0 +1,56 @@
+
+--- Hardware ---
+
++ Portierung der ECO32-Hardware -> Starter Kit (siehe 
+
++ Integration der Netzwerkhardware
+
++ Serial Port
+	+ Controller mit programmierbarer Baud-Rate
+	+ Output Buffer (z.B. Distributed RAM: 8 DR-Blocks -> 16 Bytes)
+	+ Input Buffer analog; Beim Eintreffen von Daten lŠuft ein Timer
+	  los, wenn abgelaufen Interrupt -> Zeit, um mehr Zeichen zu
+	  empfangen. Wenn Zeichen bei halbvollem Buffer eintreffen ->
+	  Timer Restart oder weiterlaufen?
+
++ CPU
+	+ Cache
+		+ Reiner I-Cache: Sehr einfach, da kein Schreiben.
+		  Manuelle synchronisation (flush-Befehl). Die meisten
+		  Speicherzugriffe sind I-fetches --> trotzdem gro§er
+		  Performancegewinn.
+		+ I/D Cache
+	+ Pipelining
+
++ 3E Starter Display
+	+ Farbtiefe. Kombination aus šrtlichem und zeitlichem an/aus
+	  Muster (dithering, pulse width modulation). Beispiel fŸr
+	  halb-hell: Hochauflšsendes Schachbrett mit Invertierung je
+	  Frame.
+
+	  Normal 640x480x60 -> 25 MHz Pixel Clock
+	  2x Zeilen, 2x Spalten, 2x Bilder --> 200 MHz
+	  Mšglichst viele Berechnungen kšnnen im 50 MHz-Teil stattfinden
+	  -> mehr Luft fŸr die entsprechende Kombinatorische Logik.
+	  FALSCH: Doppelte Zeilenzahl, doppelte Bildfrequenz -> 4x
+	  Zeilenfrequenz --> "grobe" Pixel sind 2 Pixel breit, 1 hoch,
+	  1 lang --> 100 MHz "grobpixeltakt". Aber 100 MHz ist immer noch
+	  einfacher als 200 MHz.
+
+	  Berechnungen, die mit 100 MHz stattfinden, sind dann z.B.
+	  Bestimmung des PWM-Musters.
+
++ DMA-Controller
+	+ †bertragungsmodi:
+		+ Device -> Memory, gleichzeitiger Zugriff
+		+ Memory -> Device, gleichzeitiger Zugriff
+		+ Memory -> Memory, Wechselzugriff (use case ?)
+	+ Nicht unterstŸtzt:
+		+ Device -> Device (kein sinnvoller use case)
+
+
+--- Tools ---
+
++ Bus Hardware Generator (analog Xilinx EDK)
+
+--- Software ---

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ESDK-Eclipse
+Bundle-SymbolicName: name.martingeisse.esdk;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: name.martingeisse.esdk.eclipse.Activator
+Bundle-Vendor: Martin Geisse
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors,
+ name.martingeisse.esdklib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

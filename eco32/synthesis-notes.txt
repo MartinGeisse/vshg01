@@ -1,0 +1,19 @@
+WARNING:Xst:643 - "../vshg01.mni.fh-giessen.de/eco32/src/cpu/Cpu.v" line 2: The result of a 32x32-bit multiplication is partially used. Only the 32 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+
+INFO:Xst:738 - HDL ADVISOR - 640 flip-flops were inferred for signal <tlbKeyArray>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+
+INFO:Xst:738 - HDL ADVISOR - 2048 flip-flops were inferred for signal <generalPurposeRegisters>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+
+WARNING:Xst:1710 - FF/Latch <generalPurposeRegisters_0_15> (without init value) has a constant value of 0 in block <Cpu>. This FF/Latch will be trimmed during the optimization process.
+
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <generalPurposeRegisters_0_16> (without init value) has a constant value of 0 in block <Cpu>. This FF/Latch will be trimmed during the optimization process.
+
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <busWriteRegister> (without init value) has a constant value of 0 in block <Cpu>. This FF/Latch will be trimmed during the optimization process.
+
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dataInputOutputBusSizeRegister_0> (without init value) has a constant value of 0 in block <Cpu>. This FF/Latch will be trimmed during the optimization process.
+
+ERROR:Xst:528 - Multi-source in Unit <Cpu> on signal <generalPurposeRegisters<30><31>>; this signal is connected to multiple drivers.
+Drivers are: 
+   Output signal of FDE instance <generalPurposeRegisters_30_31>
+   Output signal of FDE instance <generalPurposeRegisters_30_ren_31>
+

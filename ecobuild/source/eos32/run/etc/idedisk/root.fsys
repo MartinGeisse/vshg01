@@ -1,0 +1,137 @@
+/etc/idedisk/bootblk
+99999 66666
+d--755 0 0
+boot      d--755 0 0
+          hello.bin       ---644 0 0 /boot/hello.bin
+          hello.map       ---644 0 0 /boot/hello.map
+          memsize.bin     ---644 0 0 /boot/memsize.bin
+          memsize.map     ---644 0 0 /boot/memsize.map
+          onetask.bin     ---644 0 0 /boot/onetask.bin
+          onetask.map     ---644 0 0 /boot/onetask.map
+          twotasks-1.bin  ---644 0 0 /boot/twotasks-1.bin
+          twotasks-1.map  ---644 0 0 /boot/twotasks-1.map
+          twotasks-2.bin  ---644 0 0 /boot/twotasks-2.bin
+          twotasks-2.map  ---644 0 0 /boot/twotasks-2.map
+          wrtmbr.bin      ---644 0 0 /boot/wrtmbr.bin
+          wrtmbr.map      ---644 0 0 /boot/wrtmbr.map
+          dskchk.bin      ---644 0 0 /boot/dskchk.bin
+          dskchk.map      ---644 0 0 /boot/dskchk.map
+          eos32.bin       ---644 0 0 /boot/eos32.bin
+          eos32.map       ---644 0 0 /boot/eos32.map
+          $
+tst       d--755 0 0
+          assert          ---755 0 0 /tst/assert
+          ctype           ---755 0 0 /tst/ctype
+          eos32           ---755 0 0 /tst/eos32
+          eos32x          ---755 0 0 /tst/eos32x
+          setjmp          ---755 0 0 /tst/setjmp
+          signal          ---755 0 0 /tst/signal
+          stdarg          ---755 0 0 /tst/stdarg
+          stdio           ---755 0 0 /tst/stdio
+          stdlib          ---755 0 0 /tst/stdlib
+          string          ---755 0 0 /tst/string
+          time            ---755 0 0 /tst/time
+          init            ---755 0 0 /tst/init
+          sh              ---755 0 0 /tst/sh
+          hello           ---755 0 0 /tst/hello
+          primes          ---755 0 0 /tst/primes
+          cmdline         ---755 0 0 /tst/cmdline
+          showenv         ---755 0 0 /tst/showenv
+          retval          ---755 0 0 /tst/retval
+          db              ---755 0 0 /tst/db
+          sec1            ---755 0 0 /tst/sec1
+          sec2            ---755 0 0 /tst/sec2
+          two             ---755 0 0 /tst/two
+          sig1            ---755 0 0 /tst/sig1
+          sig2            ---755 0 0 /tst/sig2
+          recurse         ---755 0 0 /tst/recurse
+          chkdsks         ---755 0 0 /tst/chkdsks
+          $
+bin       d--755 0 0
+          as              ---755 0 0 /bin/as
+          cat             ---755 0 0 /bin/cat
+          chgrp           ---755 0 0 /bin/chgrp
+          chmod           ---755 0 0 /bin/chmod
+          chown           ---755 0 0 /bin/chown
+          clri            ---755 0 0 /bin/clri
+          cmp             ---755 0 0 /bin/cmp
+          cp              ---755 0 0 /bin/cp
+          cpp             ---755 0 0 /bin/cpp
+          date            ---755 0 0 /bin/date
+          dcheck          ---755 0 0 /bin/dcheck
+          df              ---755 0 0 /bin/df
+          dof             ---755 0 0 /bin/dof
+          du              ---755 0 0 /bin/du
+          echo            ---755 0 0 /bin/echo
+          ed              ---755 0 0 /bin/ed
+          grep            ---755 0 0 /bin/grep
+          icheck          ---755 0 0 /bin/icheck
+          joe             ---755 0 0 /bin/joe
+          kill            ---755 0 0 /bin/kill
+          lburg           ---755 0 0 /bin/lburg
+          lcc             ---755 0 0 /bin/lcc
+          ld              ---755 0 0 /bin/ld
+          ln              ---755 0 0 /bin/ln
+          login           ---755 0 0 /bin/login
+          ls              ---755 0 0 /bin/ls
+          mkdir           ---755 0 0 /bin/mkdir
+          mkfs            ---755 0 0 /bin/mkfs
+          mknod           ---755 0 0 /bin/mknod
+          mkpart          ---755 0 0 /bin/mkpart
+          mount           ---755 0 0 /bin/mount
+          ncheck          ---755 0 0 /bin/ncheck
+          passwd          ---755 0 0 /bin/passwd
+          ps              ---755 0 0 /bin/ps
+          pwd             ---755 0 0 /bin/pwd
+          rcc             ---755 0 0 /bin/rcc
+          rm              ---755 0 0 /bin/rm
+          rmdir           ---755 0 0 /bin/rmdir
+          sh              ---755 0 0 /bin/sh
+          shfs            ---755 0 0 /bin/shfs
+          shpart          ---755 0 0 /bin/shpart
+          stty            ---755 0 0 /bin/stty
+          sync            ---755 0 0 /bin/sync
+          umount          ---755 0 0 /bin/umount
+          update          ---755 0 0 /bin/update
+          wc              ---755 0 0 /bin/wc
+          $
+dev       d--755 0 0
+          console         c--644 0 0 0 0
+          mem             c--600 0 0 8 0
+          kmem            c--600 0 0 8 1
+          null            c--666 0 0 8 2
+          idediskp0       b--644 0 0 0 0
+          idediskp1       b--644 0 0 0 1
+          idediskp2       b--644 0 0 0 2
+          idedisk         b--644 0 0 0 16
+          serdiskp0       b--644 0 0 1 0
+          serdiskp1       b--644 0 0 1 1
+          serdiskp2       b--644 0 0 1 2
+          serdisk         b--644 0 0 1 16
+          ramdisk         b--644 0 0 2 0
+          swap            b--644 0 0 0 1
+          $
+etc       d--755 0 0
+          getty           ---755 0 0 /etc/getty
+          init            ---755 0 0 /etc/init
+          passwd          ---644 0 0 /etc/passwd
+          group           ---644 0 0 /etc/group
+          rc              ---644 0 0 /etc/rc
+          ttys            ---644 0 0 /etc/ttys
+          motd            ---644 0 0 /etc/motd
+          idedisk   d--755 0 0
+                    disk.part       ---644 0 0 /etc/idedisk/disk.part
+                    mbootblk        ---644 0 0 /etc/idedisk/mbootblk
+                    bootblk         ---644 0 0 /etc/idedisk/bootblk
+                    root.fsys       ---644 0 0 /etc/idedisk/root.fsys
+                    usr.fsys        ---644 0 0 /etc/idedisk/usr.fsys
+                    $
+          $
+lib       d--755 0 0
+          $
+tmp       d--777 0 0
+          $
+usr       d--755 0 0
+          $
+WELCOME   ---644 0 0      /WELCOME
+$

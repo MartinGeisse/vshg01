@@ -1,0 +1,35 @@
+
+The simulator uses two internal timing measurement units:
+
+- instruction: a single CPU instruction
+- tick: a signal sent regularly to peripheral devices.
+
+To model reality closely, the simulator assumes the following
+about CPU instructions:
+
+- clock frequency: 50 MHz
+- about 10 clocks per instruction
+--> 5 MIPS
+
+Ticks should not be sent too often, since there is a certain
+simulation overhead, and not too seldom to make devices
+responsive. The simulator assumes the following about ticks:
+
+- tick frequency: 10 KHz
+--> 500 ticks / instruction
+
+Consequently, devices react to ticks in the following way:
+
+- keyboard and terminal transmit one byte per 3 ticks
+- the timer counts a millisecond every 10 ticks
+
+The simulator currently does not allow to alter this basic model.
+Especially, it does not allow to detach ticks from instructions,
+since that would alter the simulation model in an irreproducible
+way.
+
+The simulator currently does not synchronize ticks/instructions
+to real time. This is possible in principle, meaning that simulation
+is slowed down to actually produce 10k ticks per second. It is
+obviously only possible in practice if the host machine is
+powerful enough to achieve that rate.

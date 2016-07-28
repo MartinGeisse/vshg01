@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html>
+	<wicket:head>
+		<xcript type="text/javascript" src="/resources/name.martingeisse.webeco.jquery.Dummy/base.js"></xcript>
+		<script type="text/javascript" wicket:message="src:webeco.path.js.base"></script>
+		
+		
+		<script type="text/javascript">
+			$().ready(function() {
+				$('#tabs').tabs('#panes > div');
+			});
+		</script>
+		<style type="text/css">
+		
+			#simulatorTabPanel {
+				width: 800px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 30px;
+				background-color: #eeeeee;
+				border: 1px solid #aaaaaa;
+				-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; 
+				-webkit-box-shadow: 0px 0px 20px 5px #808080; -moz-box-shadow: 0px 0px 20px 5px #808080; box-shadow: 0px 0px 20px 5px #808080;
+			}
+
+			#tabs {
+				padding: 0px;
+				margin: 0px;
+			}
+
+			#tabs a {
+				margin: 5px;
+				padding-top: 15px;
+				width: 188px;
+				height: 35px;
+				background-color: #ffd0d0;
+				border: 1px solid #aaaaaa;
+				display: block;
+				float: left;
+				text-decoration: none;
+				text-align: center;
+				color: black;
+				-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; 
+			}
+
+			#tabs a.current {
+				background-color: #d0ffd0;
+				font-weight: bold;
+			}
+			
+			#panes {
+				clear: both;
+				padding: 10px;
+				border-top: 1px solid #aaaaaa;
+				height: 550px;
+				-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; 
+			}
+			
+		</style>
+	</wicket:head>
+	<body>
+		<div id="simulatorTabPanel">
+			<div id="tabs">
+				<a href="#pane-1">Simulator</a>
+				<a href="#pane-2">Console</a>
+				<a href="#pane-3">Terminal</a>
+				<a href="#pane-4">Debug Output</a>
+			</div>
+			<div id="panes">
+				<div>
+					<a wicket:id="resetLink">Reset</a>
+				</div>
+				<div>
+					<div wicket:id="characterDisplayPanel"></div>
+				</div>
+				<div>
+					<div style="text-align: center; margin-top: 5px; ">
+						<textarea rows="35" cols="100" wicket:id="text" readonly="readonly" style="font-size: 12px; font-family: monospace; resize: none; "></textarea>
+					</div>
+					<div style="white-space: nowrap; text-align: center; ">
+						<form wicket:id="inputForm" style="display: inline !important;">
+							<input type="text" wicket:id="text" style="font-family: monospace; width: 400px; "></input>
+							<input type="submit" wicket:id="submit" value="send"></input>
+						</form>
+						<input type="button" value="<-" wicket:id="backspaceButton"></input>
+					</div>
+				</div>
+				<div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

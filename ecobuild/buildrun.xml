@@ -1,0 +1,7 @@
+<project name="MyProject" default="build" basedir=".">
+	<target name="build">
+		<ant antfile="build.xml" />
+		<ant antfile="run.xml" />
+	</target>
+</project>
+	

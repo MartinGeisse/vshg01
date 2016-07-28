@@ -1,0 +1,23 @@
+
+MODULE_SRC_DIR := $(SRC_DIR)/Kernel
+MODULE_BUILD_DIR := $(BUILD_DIR)/Kernel
+
+KERNEL_SOURCE_FILES := start.s HeapParameters.c PageFrameAllocator.c Poke.c Kernel.c Display.c end.s
+KERNEL_SOURCE_PATHS := $(foreach sourceFile,$(KERNEL_SOURCE_FILES),$(MODULE_SRC_DIR)/$(sourceFile))
+
+.PHONY: BuildKernel
+BuildKernel: $(BUILD_DIR)/Kernel/romimage.bin
+
+$(BUILD_DIR)/Kernel/romimage.bin: $(BUILD_DIR)/Kernel $(KERNEL_SOURCE_PATHS)
+	$(call KERNELCC,Kernel,romimage) $(KERNEL_SOURCE_PATHS)
+
+$(BUILD_DIR)/Kernel: $(BUILD_DIR)
+	$(SAFEMKDIR) $(BUILD_DIR)/Kernel
+
+.PHONY: CleanKernel
+CleanKernel:
+	rm -rf $(BUILD_DIR)/Kernel
+
+.PHONY: SimulateKernel
+SimulateKernel: BuildKernel
+	$(TOOL_DIR)/sim -i -r $(BUILD_DIR)/Kernel/romimage.bin -c

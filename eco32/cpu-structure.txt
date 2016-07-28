@@ -1,0 +1,15 @@
+
+
+structure for the top-level CPU HDL file:
+
+- signal declarations (control/data)
+- submodules
+- signal assignments (multiple assignments / processes, not one big process)
+
+instruction decoder: generates signals solely from the current instruction
+-> submodule
+
+main state machine: generates signals mainly from the current state and helper signals,
+should mainly uses helper signals from the instruction decoder and not directly from
+the instruction.
+-> main module

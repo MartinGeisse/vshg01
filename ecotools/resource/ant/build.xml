@@ -1,0 +1,114 @@
+<project name="Eco32StandardSimulator" default="distribution" basedir=".">
+
+	<!-- project meta-data -->
+	<description>ECO32 standard simulator project</description>
+
+	<!-- user base definitions -->
+	<property name="project-name" value="ecosim" />
+	<property name="project-root" location="../.." />
+	<property name="workspace-root" location="../../.." />
+
+	<!-- derived definitions -->
+	<property name="build-folder" location="${project-root}/build" />
+	<property name="output-folder" location="${build-folder}/${project-name}" />
+	<property name="global-resource-root" location="${project-root}/resource" />
+	<property name="project-resource-root" location="${global-resource-root}/${project-name}" />
+
+	<!-- build instructions -->
+	<target name="distribution">
+
+		<!-- ******************************************************** -->
+		<!-- common build -->
+		<!-- ******************************************************** -->
+
+		<!-- initialize the build folder -->
+		<mkdir dir="${build-folder}" />
+		<delete dir="${output-folder}" />
+		<mkdir dir="${output-folder}" />
+		<mkdir dir="${output-folder}/common" />
+
+		<!-- copy class files and classpath resources -->
+		<copy todir="${output-folder}/common/bin">
+			<fileset dir="${project-root}/bin">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${output-folder}/common/bin">
+			<fileset dir="${workspace-root}/swtlib/bin">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<!-- copy library files -->
+		<copy todir="${output-folder}/common/lib">
+			<fileset dir="${project-root}/lib">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${output-folder}/common/lib">
+			<fileset dir="${workspace-root}/swtlib/lib">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+		
+		<!-- copy additional files -->
+		<copy todir="${output-folder}/common/programs">
+			<fileset dir="${project-resource-root}/programs">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<!-- ******************************************************** -->
+		<!-- 64-bit Mac OS X build -->
+		<!-- ******************************************************** -->
+
+		<!-- copy common build files -->
+		<copy todir="${output-folder}/macosx64">
+			<fileset dir="${output-folder}/common">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<!-- copy platform-specific libraries -->
+		<copy todir="${output-folder}/macosx64/lib">
+			<fileset dir="${workspace-root}/swtlib/lib/macosx/64">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<!-- copy additional files -->
+		<copy todir="${output-folder}/macosx64">
+			<fileset dir="${project-resource-root}/macosx">
+				<include name="ecosim.sh" />
+			</fileset>
+		</copy>
+		<chmod file="${output-folder}/macosx64/ecosim.sh" perm="a+x" />
+
+		<!-- ******************************************************** -->
+		<!-- 32-bit Linux build -->
+		<!-- ******************************************************** -->
+
+		<!-- copy common build files -->
+		<copy todir="${output-folder}/linux32">
+			<fileset dir="${output-folder}/common">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<!-- copy platform-specific libraries -->
+		<copy todir="${output-folder}/linux32/lib">
+			<fileset dir="${workspace-root}/swtlib/lib/linux/32">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<!-- copy additional files -->
+		<copy todir="${output-folder}/linux32">
+			<fileset dir="${project-resource-root}/linux">
+				<include name="ecosim.sh" />
+			</fileset>
+		</copy>
+		<chmod file="${output-folder}/linux32/ecosim.sh" perm="a+x" />
+
+	</target>
+</project>

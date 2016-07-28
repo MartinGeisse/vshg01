@@ -1,0 +1,10 @@
+
+.PHONY: BuildCrossTestUtils
+BuildCrossTestUtils: $(TEST_BUILD_DIR)/CrossTestUtils
+
+$(TEST_BUILD_DIR)/CrossTestUtils: $(TEST_BUILD_DIR)
+	$(SAFEMKDIR) $(TEST_BUILD_DIR)/CrossTestUtils
+
+.PHONY: CleanCrossTestUtils
+CleanCrossTestUtils:
+	rm -rf $(TEST_BUILD_DIR)/CrossTestUtils

@@ -1,0 +1,12 @@
+
+The eco32-0.19 folder contains a copy of the original ECO32 Project, including its
+own copyright and licensing notice.
+
+The tetris folder contains a copy of the ECO32 Tetris demonstration Project, including
+its own copyright and licensing notice.
+
+The ecotools, ecotools-test, swtlib, and swtlib-test folders contain software
+copyright (c) 2010 Martin Geisse. This software is distributed under the terms of the
+MIT license. A copy of that license can be found in each folder, named "copying.txt".
+The "lib" subfolders of these folders contain third-party libraries that are copyrighted
+by their respective authors.

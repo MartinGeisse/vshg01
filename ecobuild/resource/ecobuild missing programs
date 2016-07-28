@@ -1,0 +1,25 @@
+
+disk/tools/mkboot
+
+disk/tools/mkmboot
+
+disk/tools/mkfs -- ?
+	tools/mkfs/root.proto
+	tools/mkfs/small.proto
+	tools/mkfs/usr.proto
+
+disk/tools/mkpart -- ?
+	part.conf
+
+eos32/*
+
+fpga/*
+
+monitor/*
+
+
+-----
+
+LCC:
+	erwartet scheinbar einen "tools" Ordner wo as, ld, vermutlich auch
+	die LCC-Unterprogramme drin sind.

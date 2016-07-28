@@ -1,0 +1,12 @@
+
+        * p_spec.c: P_FindNextHighestFloor
+          The number of adjoining sectors is limited to 20, because
+	  of a temporary LUT needed for determining lowest height
+	  in adjacent sectors. No overflow checking is done.
+
+        * Attempt to compile as C++. Loads of warnings, a couple of errors.
+          p_pspr.c: In function `void P_SetPsprite(struct player_s *, ... )':
+           too many arguments to function
+           No convenient fix - state->action is declared void action(),
+           but called w/o, with one, or with two parameters.
+           There are more like this. Going to be a tough one.

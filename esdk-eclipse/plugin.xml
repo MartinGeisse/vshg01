@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<extension point="org.eclipse.core.resources.natures" id="EsdkNature" name="ESDK Nature">
+		<runtime>
+			<run class="name.martingeisse.esdk.eclipse.EsdkNature">
+			</run>
+		</runtime>
+	</extension>
+
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution id="name.martingeisse.esdk.ProjectPopupMenuContribution" objectClass="org.eclipse.core.resources.IProject" adaptable="true">
+			<action id="name.martingeisse.esdk.ProjectPopupMenuContribution.AddEsdkNature"
+				label="Add ESDK Nature"
+				icon="icons/plugin_add.png"
+				menubarPath="org.eclipse.ui.projectConfigure/additions"
+				class="name.martingeisse.esdk.eclipse.EsdkNatureDelegate"	
+				enablesFor="+">
+			</action>
+			<action id="name.martingeisse.esdk.ProjectPopupMenuContribution.RemoveEsdkNature"
+				label="Remove ESDK Nature"
+				icon="icons/plugin_delete.png"
+				menubarPath="org.eclipse.ui.projectConfigure/additions"
+				class="name.martingeisse.esdk.eclipse.EsdkNatureDelegate"	
+				enablesFor="+">
+			</action>
+		</objectContribution>
+	</extension>
+
+	<extension id="EsdkBuilder" name="ESDK Builder" point="org.eclipse.core.resources.builders">
+		<builder>
+			<run class="name.martingeisse.esdk.eclipse.EsdkBuilder">
+			</run>
+		</builder>
+	</extension>
+   
+	<extension point="org.eclipse.ui.editors">
+		<editor
+			name="PicoBlaze Source Editor"
+			extensions="psm"
+			icon="icons/brick.png"
+			contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+			class="name.martingeisse.esdk.eclipse.picoblaze.editor.PicoBlazeEditor"
+			id="name.martingeisse.esdk.eclipse.picoblaze.editor.PicoBlazeEditor">
+		</editor>
+	</extension>
+   
+	<extension id="ProblemMarker" point="org.eclipse.core.resources.markers" name="Problem">
+		<super type="org.eclipse.core.resources.problemmarker"/>
+		<super type="org.eclipse.core.resources.textmarker"/>
+		<persistent value="true"/>
+	</extension>
+   
+</plugin>

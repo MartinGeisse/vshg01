@@ -1,0 +1,86 @@
+
+Eine Quadtree-artige Struktur bringt nichts, da in den Zwischenstufen nichts aussortiert werden kann. Statt
+dessen wird nur ein zweidimensionales Array von "Tiles" gespeichert. Ein erster Vorschlag für die Kantenlänge
+der Tiles wäre ca. 100m. 10m sind zu kurz (zu wenige Nodes), 1km zu viel.
+
+Pro Tile wird ein Zeiger auf die eigentlichen Daten gespeichert. "Leere" Tiles sind vermutlich nicht zu erwarten;
+deshalb keine Optimierung dafür.
+
+------------------------
+
+Speicherplatz-Überschlagsrechnung:
+
+1. Verhältnis der Geokoordinaten
+
+	Gießen liegt 50.5° N.
+	cos(50.5°) = 0.636
+
+2. Schrittweite der Geokoordinaten von OSM
+
+	Beispielwert 52.5335334°
+	Schrittweite  0.0000001°
+	= 1° / (10 Mio)
+	
+	360° = 44000km
+	1° = 122.2km
+	Schrittweite = (122.2km) / (10 Mio)
+	= (122.2m) / (10000)
+	= 0.01222m
+	= 1.22 cm
+	~ 1cm
+
+3. Schritte in einem Tile, Annahme 100m Kantenlänge
+
+	100m / 1.22 cm
+	= 10000m / 1.22m
+	= 8196.7
+
+	Mögliche Nutzung:
+	8192 Schritte pro Tile-Kante
+	Koordinaten eines Nodes innerhalb eines Tile plus Zusatzinformation wird als 32-Bit-Wort gespeichert
+	x-Pos. 13 Bits
+	y-Pos. 13 Bits
+	Zusatzinfo 6 Bits
+		Denkbar:
+		- LOD-Info
+		- Art des Nodes (zum Ausblenden je nach Kartentyp)
+		- Verwendung als Node, als Teil eines Ways, als Node-Teil einer Relation, bzw. weiter aufgeschlüsselt
+
+4. Schritte bei gröberer Schrittweite
+
+	256 Schritte pro Tile-Kante, 100m Kantenlänge
+	-> 40 cm Schrittweite
+	Aber dann keine Zusatzbits.
+	
+	Dann würden Nodes mit 16 Bits Daten gespeichert. Es würde sich also nicht lohnen, 32 Bits für eine
+	Node-Referenz zu speichern, außer es muss irgendwo auf Node-Identität geprüft werden.
+	
+	Allerdings kann ohne Identität kein Verweis auf einen Node außerhalb des Tile gespeichert werden,
+	was für Tile-übergreifende Features nötig wäre.
+		
+5. Kompression innerhalb der Tiles
+
+	Die Node-Daten innerhalb eines Tiles können weiter komprimiert werden. Das lohnt sich, solange die
+	Tiles nicht zu klein werden. Hierfür wäre ein Quadtree sinnvoll. Dabei werden Einheiten von je
+	4 Bit gespeichert (2 pro Byte), die jeweils angeben, ob in dem Quadtree-Subnode Daten existieren.
+	Für alle "gefüllten" Subnodes folgt dann ein weiterer 4-Bit-Block. Blätter werden nicht markiert
+	sondern ergeben sich aus der Tiefe / Kantenlänge. Alternativ könnten 4x4 statt 2x2 Subnodes je
+	Node existieren (abgewandelter Quadtree). Das ist vor allem sinnvoll, wenn die Tiles sehr voll
+	sind. Das könnte aber auch als Zeichen dafür gewertet werden, dass die Tiles zu voll sind.
+	
+	Alternativ: Kleinere Tiles; 1-Stufige NxN Bitmap (Also wie o.g. Quadtree, aber nur 1 Ebene tief).
+
+6. Ungelöstes Problem sind immer noch Tile-übergreifende Features. Wie das gelöst wird, hängt davon
+	ab, wie groß diese Features sind, also wie viele Tiles sie übergreifen können. Ein möglicher
+	Lösungsansatz wäre es, keine Features / Geodaten, sondern eine Zwischenstufe zu Vektorgrafiken
+	zu speichern. Um keine "Brüche" an Tilekanten zu erzeugen, z.B. durch einen durchtrennten Way
+	dessen Fragmente leicht unterschiedliche Steigung haben, werden entweder doch Nodes außerhalb
+	des Parent-Tiles oder eine entsprechend hohe Auflösung nötig.
+
+	Ein weiteres ungelöstes Problem ist, dass ein Quadtree o.ä. wieder Referenzen auf die Nodes
+	benötigt, weil QT-Blätter nur die Nodes, aber keine anderen Features enthalten können (da
+	diese Blatt-übergreifend sind). 
+
+	
+	
+	

@@ -1,0 +1,58 @@
+<project name="Eco32-Tests" default="runTests" basedir=".">
+
+	<!-- add task definitions from the ant-contrib project -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+
+	<!-- project meta-data -->
+	<description>ECO32 hardware implementation tests</description>
+
+	<!-- user base definitions -->
+	<property name="projectSourceFolder" location="../eco32/src" />
+	<property name="testSourceFolder" location="src" />
+	<property name="testBuildFolder" location="bin" />
+
+	<!-- load unit test case list -->
+	<property file="UnitTests.properties" />
+	<propertyselector property="unitTests" match="eco32\.test\..*" delimiter="," override="false" />
+
+	<!-- build instructions -->
+	<target name="runTests">
+
+		<!-- loop over test cases -->
+		<for list="${unitTests}" delimiter="," param="testPropertyName">
+			<sequential>
+				
+				<!-- extract the base name ofthe test from the property name -->
+				<propertyregex property="testName" input="@{testPropertyName}" regexp="eco32\.test\.(.*)" select="\1" override="true" />
+				<propertyregex property="convertedTestName" input="${testName}" regexp="\." replace="/" defaultvalue="${testName}" override="true" />
+
+				<!-- build the module source paths -->
+				<var name="moduleSourceFiles" value="" />				
+				<for list="${@{testPropertyName}}" delimiter=" " param="moduleSourceFile">
+					<sequential>
+						<var name="moduleSourceFiles" value="${moduleSourceFiles} ${projectSourceFolder}/@{moduleSourceFile}" />				
+					</sequential>
+				</for>
+
+				<!-- run the iverilog compiler -->
+				<exec dir="${testSourceFolder}" executable="/sw/bin/iverilog">
+					<arg line="-grelative-include" />
+					<arg line="-o ${testBuildFolder}/${convertedTestName}.vvp" />
+					<arg line="${testSourceFolder}/${convertedTestName}.v" />
+					<arg line="${moduleSourceFiles}" />
+				</exec>
+				
+				<!-- run the vvp engine -->
+				<exec dir="${testBuildFolder}" executable="/sw/bin/vvp">
+					<arg line="${convertedTestName}.vvp" />
+				</exec>
+				
+			</sequential>
+		</for>
+
+	</target>
+</project>

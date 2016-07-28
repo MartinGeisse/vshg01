@@ -1,0 +1,1 @@
+cat "$3/stage1/br.bin" "$3/stage2/boot.bin" > "$3/bootblk"

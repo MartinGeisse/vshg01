@@ -1,0 +1,5 @@
+
+folder monitor
+file ../monitor/monitor.bin
+file ../monitor/monitor.exo
+file ../monitor/monitor-dos.exo

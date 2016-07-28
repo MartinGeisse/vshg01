@@ -1,0 +1,23 @@
+
+------------------------------------------------------------------------------------------------------------
+GUI Features
+------------------------------------------------------------------------------------------------------------
+copy&paste
+about-dialog
+
+------------------------------------------------------------------------------------------------------------
+Optimierung
+------------------------------------------------------------------------------------------------------------
+- Refresh nur der sichtbaren Memory-Panels (-> deselektierte Tabs!)
+- Refresh nur bei den in den Tabs angezeigten Adressen (aber: MMU-aliasing!)
+- Teil-Refresh der betroffenen Adressen
+
+------------------------------------------------------------------------------------------------------------
+Misc
+------------------------------------------------------------------------------------------------------------
+PSW special register -> split into multiple GUI components for different bit fields
+add on-the-fly assembler GUI component
+reset operation
+
+show error if disk file does not exist. Currently creates a 0-byte file and has "no disk".
+

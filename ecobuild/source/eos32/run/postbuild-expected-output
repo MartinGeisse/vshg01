@@ -1,0 +1,17 @@
+Creating disk .* with .* sectors .*
+Disk .* has .* sectors.*
+
+Partitions\:
+\s*\#\s+b\s+type\s+start\s+last\s+size\s+description
+\s*\p{XDigit}+\s+(\*\s+)?0x\p{XDigit}+\s+0x\p{XDigit}+\s+0x\p{XDigit}+\s+0x\p{XDigit}+\s+.*
+
+File system space is \d+ \(0x\p{XDigit}+\) sectors of \d+ bytes each\.
+This equals \d+ \(0x\p{XDigit}+\) blocks of \d+ bytes each\.
+
+File system size \= \d+ blocks
+Number of inodes \= \d+ inodes
+
+File system uses \d+ \(0x\p{XDigit}+\) of \d+ \(0x\p{XDigit}+\) blocks\.
+File system can hold \d+ \(0x\p{XDigit}+\) files\.
+Checking blocks\.\.\.
+Checking files\.\.\.

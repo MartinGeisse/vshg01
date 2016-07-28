@@ -1,0 +1,18 @@
+folder lib
+
+file ../eos32sys/eos32sys.o
+file ../setjmp/setjmp.o
+file ../startup/c0.o
+file ../startup/c1.o
+
+file ../libsrc/assert.o
+file ../libsrc/ctype.o
+file ../libsrc/eos32lib.o
+file ../libsrc/errno.o
+file ../libsrc/math.o
+file ../libsrc/signal.o
+file ../libsrc/stdio.o
+file ../libsrc/stdlib.o
+file ../libsrc/string.o
+file ../libsrc/time.o
+file ../libsrc/tui_core.o

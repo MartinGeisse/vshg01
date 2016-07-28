@@ -1,0 +1,19 @@
+
+Was sind eigentlich die Ziele des Usermode-Simulators?
+
+- Build-Prozess ohne GCC
+- Entwicklung von EOS-Anwendungen, ohne dass EOS dafür hochfahren muss
+- Entwicklung eines neuen OS, bevor es dieses gibt
+
+Was sind *nicht* die Ziele?
+
+- EOS-Anwendungen als Teile des nativen Systems zu benutzen. Insbesondere
+  wäre das stark abhängig vom Host-System.
+  
+Daraus ergibt sich:
+
+- Process Sets, UIDs / GIDs / PIDs / ... müssen und sollen nicht die des
+  Host-Systems sein. Der Simulator ist also nicht in erster Linie eine
+  Abbildung der EOS-Funktionen auf Host-OS-Funktionen, sondern ein
+  simuliertes EOS, das nur soweit nötig / sinnvoll auf Host-Funktionen
+  zurückgreift.

@@ -1,0 +1,14 @@
+
+Build Instructions
+------------------
+
+Tools: Building Blocks-in-a-Row requires the ECO32 tool chain. It
+  expects the Eco32 (0.20) Distribution to be placed next to the
+  main blocks-in-a-row folder.
+
+Software: Go into the "software" folder and run "make"
+  (tested only on Cygwin). This produces "romimage.exo" which can
+  be loaded into the flash ROM.
+
+Hardware: Open blocks-in-a-row.npl in the "hardware" folder and synthesize. This
+  produces "blocks-in-a-row.bit" which can be loaded into the FPGA.

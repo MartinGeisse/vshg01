@@ -1,0 +1,9 @@
+folder lib
+file ../baselib/cpu.o
+file ../baselib/memory.o
+endfolder
+
+folder include
+srcfile ../baselib/cpu.h
+srcfile ../baselib/memory.h
+endfolder

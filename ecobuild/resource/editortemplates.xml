@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="" enabled="true" name="__exceptionClass">public class ${Name}Exception extends Exception {
+
+	/**
+	 * Constructor.
+	 */
+	public ${Name}Exception() {
+		super();
+	}
+
+	/**
+	 * Constructor.
+	 * @param message the exception message
+	 */
+	public ${Name}Exception(String message) {
+		super(message);
+	}
+
+	/**
+	 * Constructor.
+	 * @param cause the exception that caused this exception
+	 */
+	public ${Name}Exception(Throwable cause) {
+		super(cause);
+	}
+
+	/**
+	 * Constructor.
+	 * @param message the exception message
+	 * @param cause the exception that caused this exception
+	 */
+	public ${Name}Exception(String message, Throwable cause) {
+		super(message, cause);
+	}
+	
+}
+</template><template autoinsert="true" context="java" deleted="false" description="" enabled="true" name="__logger">	/**
+	 * the logger
+	 */
+	private static Logger logger = Logger.getLogger(${enclosing_type}.class);
+</template><template autoinsert="true" context="java" deleted="false" description="" enabled="true" name="__preventInstantiation">	/**
+	 * Prevent instantiation.
+	 */
+	private ${enclosing_type}() {
+	}
+</template></templates>

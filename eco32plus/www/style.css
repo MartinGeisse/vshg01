@@ -1,0 +1,67 @@
+
+table.LayoutTable {
+    border-collapse: separate;
+    width: 100%;
+}
+
+h1 {
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #dddddd;
+    padding: 3px;
+}
+
+div.NewsEntry {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    padding: 10px;
+}
+
+td.NavigationLayoutCell {
+    width: 120px;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    font-weight: bold;
+    vertical-align: top;
+    padding: 5px;
+    height: 200px;
+}
+
+td.BottomLeftLayoutCell {
+}
+
+td.SeparatorLayoutCell {
+    width: 20px;
+}
+
+td.ContentLayoutCell {
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+    text-color: #000080;
+}
+
+a:link {
+    text-color: #000080;
+}
+
+a:visited {
+    text-color: #000080;
+}
+
+a:focus {
+    text-color: #000080;
+}
+
+a:hover {
+    text-color: #000080;
+}
+
+a:active {
+    text-color: #000080;
+}

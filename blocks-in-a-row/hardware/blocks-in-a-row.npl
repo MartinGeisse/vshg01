@@ -1,0 +1,52 @@
+JDF G
+// Created by Project Navigator ver 1.0
+PROJECT blocks-in-a-row
+DESIGN blocks-in-a-row
+DEVFAM spartan3
+DEVFAMTIME 0
+DEVICE xc3s1000
+DEVICETIME 0
+DEVPKG ft256
+DEVPKGTIME 0
+DEVSPEED -4
+DEVSPEEDTIME 0
+DEVTOPLEVELMODULETYPE HDL
+TOPLEVELMODULETYPETIME 0
+DEVSYNTHESISTOOL XST (VHDL/Verilog)
+SYNTHESISTOOLTIME 0
+DEVSIMULATOR Other
+SIMULATORTIME 0
+DEVGENERATEDSIMULATIONMODEL VHDL
+GENERATEDSIMULATIONMODELTIME 0
+SOURCE .\src\clk_reset\clk_reset.v
+SOURCE .\src\cpu\cpu.v
+SOURCE .\src\blocks-in-a-row.vhdl
+SOURCE .\src\busmap.vhdl
+SOURCE .\src\kbd\keyboard.v
+SOURCE .\src\kbd\kbd.v
+SOURCE .\src\mctdisp\mctdisp.vhd
+SOURCE .\src\mctdisp\vga_timer.vhdl
+SOURCE .\src\mctdisp\chargen.vhdl
+SOURCE .\src\mctdisp\matrix.vhd
+SOURCE .\src\ram\sdramcntl.vhd
+SOURCE .\src\ram\ram.v
+SOURCE .\src\rom\rom.v
+SOURCE .\src\sound\sound_serializer.vhdl
+SOURCE .\src\sound\sound_module.vhd
+SOURCE .\src\sound\sound_generator.vhd
+SOURCE .\src\tmr\tmr.v
+DEPASSOC blocks-in-a-row .\src\blocks-in-a-row.ucf
+[Normal]
+xilxBitgCfg_Clk=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_Done=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_M0=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_M1=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_M2=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_Pgm=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_TCK=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_TDI=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_TDO=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_TMS=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+xilxBitgCfg_Unused=xstvhd, spartan3, VHDL.t_bitFile, 1223996722, Float
+[STRATEGY-LIST]
+Normal=True

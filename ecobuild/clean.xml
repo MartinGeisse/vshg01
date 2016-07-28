@@ -1,0 +1,14 @@
+<project name="MyProject" default="build" basedir=".">
+	<target name="build">
+		<java classname="name.martingeisse.ecobuild.MainClean" fork="true">
+			<classpath>
+				<pathelement path="bin" />
+				<pathelement path="../ecotools/bin" />
+				<pathelement path="lib/java/commons-io-2.1.jar" />
+				<pathelement path="lib/java/commons-lang-2.4.jar" />
+			</classpath>
+			<jvmarg value="-Xmx128M" />
+		</java>
+	</target>
+</project>
+	

@@ -1,0 +1,35 @@
+<project name="EclipseBuildSubstitute" default="compile" basedir=".">
+
+	<!-- project meta-data -->
+	<description>Eclipse build substitute</description>
+
+	<!-- user base definitions -->
+	<property name="workspace-root" location="../../.." />
+
+	<!-- build instructions -->
+	<target name="compile">
+
+		<delete dir="${workspace-root}/swtlib/bin" />
+		<mkdir dir="${workspace-root}/swtlib/bin" />
+		<javac srcdir="${workspace-root}/swtlib/src"
+			destdir="${workspace-root}/swtlib/bin"
+			classpath="${workspace-root}/swtlib/lib/macosx/64/swt.jar:${workspace-root}/swtlib/lib/lwjgl.jar"
+			debug="true"
+			debuglevel="lines,vars,source"
+			target="1.5"
+			encoding="utf-8"
+			includeAntRuntime="false" />
+
+		<delete dir="${workspace-root}/ecotools/bin" />
+		<mkdir dir="${workspace-root}/ecotools/bin" />
+		<javac srcdir="${workspace-root}/ecotools/src"
+			destdir="${workspace-root}/ecotools/bin"
+			classpath="${workspace-root}/swtlib/lib/macosx/64/swt.jar:${workspace-root}/swtlib/lib/lwjgl.jar:${workspace-root}/ecotools/lib/commons-cli-1.2.jar:${workspace-root}/swtlib/bin"
+			debug="true"
+			debuglevel="lines,vars,source"
+			target="1.5"
+			encoding="utf-8"
+			includeAntRuntime="false" />
+
+	</target>
+</project>

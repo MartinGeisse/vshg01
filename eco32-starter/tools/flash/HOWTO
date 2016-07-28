@@ -1,0 +1,52 @@
+
+How to program an MCS file into the parallel NOR flash ROM
+----------------------------------------------------------
+
+1. Connect a USB cable to the starter board. This is needed in order
+   to program the FPGA to act as a flash programmer.
+
+2. Connect a serial cable to the starter board. This is needed in
+   order to communicate with the flash programmer and to transfer
+   the MCS file.
+
+3. Transfer the MCS file you wish to program into the flash ROM to
+   the computer to which the serial cable is connected.
+
+4. Start a serial communication program (e.g. minicom) on the computer
+   at the other end of the serial cable. The communication parameters
+   must be set as follows:
+       - choose the serial port to which the cable is connected
+         (this is /dev/ttyS0 on my computer)
+       - 115200 baud
+       - 8 bits, no parity, 1 stop bit ("8N1")
+       - software flow control ("XON/XOFF protocol")
+       - line wrap on (otherwise you won't see all chars of long lines)
+       - add linefeed on (the programmer sends CR, but not LF)
+       - local echo off (the programmer does echo itself)
+
+5. Start "Impact" and load the FPGA with the design "flash-500.bit".
+   (Use "flash-1600.bit" in case you have an S3E-1600 starter kit.)
+   The platform flash ROM (xcf04s) and the CPLD (xc2c64a) should be
+   in "bypass" mode. If the download succeeds, you should see the
+   message "PicoBlaze NOR FLASH Programmer v1.00" on the computer
+   which is connected via the serial line to the starter board, as
+   well as a short menue of commands (E, B, P, W, R, I, H, S), and
+   a prompt (">"). Try the commands 'h' (the menue should be sent
+   again), 'i' (the device ID 89 18 should appear), and 's' (the
+   status should be 80). You can close "Impact" now (and disconnect
+   the USB cable, if you wish to do so).
+
+6. Erase the flash ROM completely by pressing 'e'. This command must
+   be confirmed with an upper case 'Y' and can run for a few minutes.
+   The command sends the character '.' repeatedly to show its progress.
+
+7. Program the ROM with the command 'p'. You will have to specify the
+   name of the MCS file to your communication program somehow (with
+   minicom, it's "CTRL-A Z Y <choose file> <okay>"). Your communication
+   program should send the contents of the file as if it has been
+   typed at the keyboard, without changing any character.
+
+8. Verify what you have programmed with the command 'r', followed by
+   exactly 6 hex digits which represent the starting address of 256
+   bytes (that will be dumped to your screen).
+

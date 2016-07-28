@@ -1,0 +1,74 @@
+<project name="eco32plus" default="all" >
+
+	<property name="currentVersion" value="3" />
+	<property name="workspaceRoot" location=".." />
+
+	<target name="all" depends="init, gather, archive" />
+
+	<target name="init">
+		<delete dir="build/eco32plus" />
+		<mkdir dir="build/eco32plus" />
+	</target>
+	
+	<target name="gather">
+
+		<echo message="export eco32" />
+		<exec dir="build/eco32plus" executable="svn">
+			<arg line="export" />
+			<arg line="${workspaceRoot}/eco32" />
+		</exec>
+		
+		<echo message="export eco32-0.19" />
+		<exec dir="build/eco32plus" executable="svn">
+			<arg line="export" />
+			<arg line="svn://vshg01.mni.fh-giessen.de/trunk/eco32-0.19" />
+		</exec>
+
+		<echo message="export eco32-test" />
+		<exec dir="build/eco32plus" executable="svn">
+			<arg line="export" />
+			<arg line="${workspaceRoot}/eco32-test" />
+		</exec>
+
+		<echo message="export ecotools" />
+		<exec dir="build/eco32plus" executable="svn">
+			<arg line="export" />
+			<arg line="${workspaceRoot}/ecotools" />
+		</exec>
+		
+		<echo message="export ecotools-test" />
+		<exec dir="build/eco32plus" executable="svn">
+			<arg line="export" />
+			<arg line="${workspaceRoot}/ecotools-test" />
+		</exec>
+		
+		<echo message="export swtlib" />
+		<exec dir="build/eco32plus" executable="svn">
+			<arg line="export" />
+			<arg line="${workspaceRoot}/swtlib" />
+		</exec>
+		
+		<echo message="export swtlib-test" />
+		<exec dir="build/eco32plus" executable="svn">
+			<arg line="export" />
+			<arg line="${workspaceRoot}/swtlib-test" />
+		</exec>
+				
+		<echo message="export tetris" />
+		<exec dir="build/eco32plus" executable="svn">
+			<arg line="export" />
+			<arg line="svn://vshg01.mni.fh-giessen.de/trunk/tetris" />
+		</exec>
+		
+		<echo message="copy misc files" />
+		<copy file="authors.txt" todir="build/eco32plus" />
+		<copy file="readme.txt" todir="build/eco32plus" />
+		<echo file="build/eco32plus/version.txt" message="The current version is ${currentVersion}." />
+		
+	</target>
+	
+	<target name="archive">
+		<zip destfile="build/eco32plus-${currentVersion}.zip" basedir="build/eco32plus" />
+	</target>
+
+</project>

@@ -1,0 +1,26 @@
+<project name="MyProject" default="build" basedir=".">
+	<target name="build">
+		<java classname="name.martingeisse.ecotools.simulator.ui.Main" fork="true">
+			<classpath>
+				<pathelement path="../ecotools/bin" />
+				<pathelement path="../ecotools/lib/commons-cli-1.2.jar" />
+				<pathelement path="../swtlib/bin" />
+				<pathelement path="../swtlib/lib//macosx/64/swt.jar" />
+				<pathelement path="../swtlib/lib/lwjgl.jar" />
+				<pathelement path="../swtlib/lib/lwjgl_util.jar" />
+			</classpath>
+			<jvmarg value="-Xmx128M" />
+			<jvmarg value="-XstartOnFirstThread" />
+			<jvmarg value="-Djava.library.path=../swtlib/lib/macosx/64" />
+			<arg value="-c" />
+			<arg value="-o" />
+			<arg value="output.txt" />
+			<arg value="-r" />
+			<arg value="build/monitor/monitor.bin" />
+			<arg value="-t" />
+			<arg value="1" />
+			<arg value="-i" />
+		</java>
+	</target>
+</project>
+	

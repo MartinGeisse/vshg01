@@ -1,0 +1,10 @@
+
+.PHONY: BuildKernelLibrary
+BuildKernelLibrary: $(BUILD_DIR)/KernelLibrary
+
+$(BUILD_DIR)/KernelLibrary: $(BUILD_DIR)
+	$(SAFEMKDIR) $(BUILD_DIR)/KernelLibrary
+
+.PHONY: CleanKernelLibrary
+CleanKernelLibrary:
+	rm -rf $(BUILD_DIR)/KernelLibrary

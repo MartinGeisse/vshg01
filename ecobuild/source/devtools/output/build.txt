@@ -1,0 +1,23 @@
+folder devtools
+
+exefile ../as/as
+exefile ../ld/ld
+exefile ../dof/dof
+
+exefile ../lcc/bprint
+exefile ../lcc/cpp
+exefile ../lcc/lburg
+exefile ../lcc/lcc
+exefile ../lcc/rcc
+
+exefile ../bin2exo/bin2exo
+exefile ../bit2exo/bit2exo
+exefile ../mkdisk/mkdisk
+exefile ../mkfs/mkfs
+exefile ../mkpart/mkpart
+exefile ../fsck/fsck
+exefile ../fspoke/fspoke
+exefile ../shpart/shpart
+exefile ../shfs/shfs
+
+exefile ../icodedump/icodedump

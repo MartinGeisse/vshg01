@@ -1,0 +1,21 @@
+
+Indexer:
+	createRecordIndex data.csv index.i32
+	-l: long (64-bit) output
+	-d: ASCII decimal numbers output
+
+Sorter:
+	createRecordSorting data.csv index.i32 sort.i32
+	-l: long (64) input
+	(output: record numbers, always 32-bit. Maps sorted
+	record index to input record index)
+
+Permuter:
+	reorderRecords data.csv index.i32 sort.i32 sortedData.csv
+	-l: long (64) input index
+
+	
+Notes
+------------
+
+Index contains one entry per record +1 stop entry.

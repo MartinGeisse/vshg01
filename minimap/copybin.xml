@@ -1,0 +1,7 @@
+<project name="MyProject" default="build" basedir=".">
+	<target name="build">
+		<copy todir="build">
+			<fileset dir="bin" />
+		</copy>
+	</target>
+</project>

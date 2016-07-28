@@ -1,0 +1,11 @@
+
+ECOCC = $(TOOL_DIR)/lcc -A
+
+ECOCC_KERNEL_OPTIONS = -Wo-kernel -Wl-h -Wl-rc -Wl0xE0000000 -Wl-rd -Wl0xC0000000
+
+KERNELCC = $(ECOCC) $(ECOCC_KERNEL_OPTIONS) -I$(SRC_DIR)/$(1) -Wl-m -Wl$(BUILD_DIR)/$(1)/$(2).map -o $(BUILD_DIR)/$(1)/$(2).bin
+
+HOSTCC = gcc -m32 -Wall -g -I $(SRC_DIR)/$(1) -o $(BUILD_DIR)/$(1)/$(2)
+
+CROSSTESTCC = gcc -m32 -Wall -g -I $(TEST_SRC_DIR)/$(1) -o $(TEST_BUILD_DIR)/$(1)/$(2)
+

@@ -1,0 +1,22 @@
+
+.PHONY: BuildKernelCrossTest
+BuildKernelCrossTest: $(TEST_BUILD_DIR)/KernelCrossTest/HeapParametersTest $(TEST_BUILD_DIR)/KernelCrossTest/PageFrameAllocatorTest
+
+$(TEST_BUILD_DIR)/KernelCrossTest/HeapParametersTest: $(TEST_BUILD_DIR)/KernelCrossTest
+	$(call CROSSTESTCC,KernelCrossTest,HeapParametersTest) -I $(SRC_DIR)/Kernel -I $(TEST_SRC_DIR)/CrossTestUtils $(TEST_SRC_DIR)/KernelCrossTest/HeapParametersTest.c $(TEST_SRC_DIR)/KernelCrossTest/HeapParameters.c $(TEST_SRC_DIR)/CrossTestUtils/CrossTestUtils.c $(TEST_SRC_DIR)/CrossTestUtils/Kernel.c
+
+$(TEST_BUILD_DIR)/KernelCrossTest/PageFrameAllocatorTest: $(TEST_BUILD_DIR)/KernelCrossTest
+	$(call CROSSTESTCC,KernelCrossTest,PageFrameAllocatorTest) -I $(SRC_DIR)/Kernel -I $(TEST_SRC_DIR)/CrossTestUtils $(TEST_SRC_DIR)/KernelCrossTest/PageFrameAllocatorTest.c $(TEST_SRC_DIR)/KernelCrossTest/HeapParameters.c $(SRC_DIR)/Kernel/PageFrameAllocator.c $(SRC_DIR)/Kernel/Poke.c $(TEST_SRC_DIR)/CrossTestUtils/CrossTestUtils.c $(TEST_SRC_DIR)/CrossTestUtils/Kernel.c
+
+$(TEST_BUILD_DIR)/KernelCrossTest: $(TEST_BUILD_DIR)
+	$(SAFEMKDIR) $(TEST_BUILD_DIR)/KernelCrossTest
+
+.PHONY: RunKernelCrossTest
+RunKernelCrossTest: BuildKernelCrossTest
+	$(TEST_BUILD_DIR)/KernelCrossTest/HeapParametersTest
+	$(TEST_BUILD_DIR)/KernelCrossTest/PageFrameAllocatorTest
+	@echo "RunKernelCrossTest Passed."
+
+.PHONY: CleanKernelCrossTest
+CleanKernelCrossTest:
+	rm -rf $(TEST_BUILD_DIR)/KernelCrossTest

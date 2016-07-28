@@ -1,0 +1,36 @@
+
+State of Porting
+----------------
+
+Hardware:
+
+busctrl      preliminary (missing: disk)
+clk_reset    finished
+cpu          finished
+dsk          empty
+dsp          finished
+eco32.ucf    preliminary (missing: some peripheral connections)
+eco32.v      preliminary (missing: disk)
+kbd          finished
+ram          finished
+rom          finished
+ser          finished
+tmr          finished
+
+Software:
+
+binutils     finished
+lcc          finished
+roms         finished
+monitor      preliminary (booting from disk cannot be tested yet)
+loadserv     finished
+memtest      finished
+
+Tools:
+
+chrgen       finished
+dspmem       finished
+flash        finished
+bin2mcs      finished
+bin2exo      finished
+

@@ -1,0 +1,1 @@
+run -p xc3s1000-ft256-4 -ifmt mixed -ifn eco32.prj -top eco32 -ofn eco32.ngc -ofmt NGC -work_lib work -opt_mode speed -opt_level 1

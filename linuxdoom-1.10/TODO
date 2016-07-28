@@ -1,0 +1,8 @@
+- decide whether precaching all sounds is
+  better than retrieving and releasing
+  every so often. DOOM seems to do that
+  frequently (8bit stuff, originally for
+  DOS), and the Linux sound is 16bit
+  (conversion in the mixing, requires
+  some padding) - we prolly got the memory
+  to spare.
